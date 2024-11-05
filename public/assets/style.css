@@ -1,0 +1,262 @@
+:root {
+    --bs-primary: #007bff;
+    --bs-secondary: #6c757d;
+    --bs-success: #28a745;
+    --bs-danger: #dc3545;
+    --bs-warning: #ffc107;
+    --bs-info: #17a2b8;
+    --bs-light: #f8f9fa;
+    --bs-dark: #343a40;
+
+    --bs-body-bg: #ffffff;
+    --bs-body-color: #212529;
+    --bs-header-bg: #007bff; 
+    --bs-header-color: #ffffff;
+    --bs-sidebar-bg: #f8f9fa;
+    --bs-sidebar-color: #343a40;
+    --bs-card-bg: #ffffff;
+    --bs-card-border: #e0e0e0;
+}
+
+[data-bs-theme="light"] {
+    --bs-body-bg: #ffffff;
+    --bs-body-color: #343a40;
+    --bs-header-bg: #007bff;
+    --bs-header-color: #ffffff;
+    --bs-sidebar-bg: #e9ecef;
+    --bs-sidebar-color: #212529;
+    --bs-card-bg: #ffffff;
+    --bs-card-border: #e0e0e0;
+}
+
+[data-bs-theme="dark"] {
+    --bs-body-bg: #212529;
+    --bs-body-color: #e9ecef;
+    --bs-header-bg: #343a40;
+    --bs-header-color: #ffffff;
+    --bs-sidebar-bg: #343a40;
+    --bs-sidebar-color: #e9ecef;
+    --bs-card-bg: #2c2c2c;
+    --bs-card-border: #444;
+}
+
+
+* {
+  transition: 1s;
+}
+
+.navbar {
+    height: 85px;
+    padding: 30px 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--bs-body-bg);
+}
+
+/* .nav-link.active:hover {
+    background-color: var(--bs-body-color);
+    color: #ffffff; 
+} */
+
+.container {
+    padding-top: 50px;
+}
+
+/* .employee p {
+    font-weight: bolder;
+} */
+
+.card {
+    border: 1px solid #dee2e6; /* Garis border untuk card */
+    border-radius: 0.25rem; /* Radius sudut */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* Bayangan hanya di kanan dan bawah */
+    margin-bottom: 20px; /* Jarak bawah */
+}
+
+.card-header {
+    background-color: var(--bs-sidebar-bg); /* Warna latar belakang header */
+    border-bottom: 1px solid #dee2e6; /* Garis bawah header */
+}
+
+.card-body {
+    padding: 1.25rem; /* Padding di dalam card */
+}
+
+.profile_pict {
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+}
+
+.employee-create {
+    max-width: 600px;
+    margin: auto;
+}
+
+.employee-create h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card {
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: var(--bs-body-bg);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.form-control, .form-control-file {
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.select2-container--default .select2-selection--single {
+    height: 42px !important;
+    padding: 6px 8px;
+    font-size: 14px;
+    line-height: 1.5;
+    border: 1px solid #ced4da !important;
+    border-radius: 5px !important;
+    background-color: var(--bs-card-border);
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 28px !important;
+    padding-left: 0 !important;
+    color: var(--bs-body-color);
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 40px !important;
+    right: 6px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: var(--bs-body-color);
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 6px 8px;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #007bff !important;
+}
+
+.select2-dropdown {
+    border: 1px solid #ced4da !important;
+    border-radius: 5px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+    background-color: var(--bs-card-border) !important;
+}
+
+.select2-results__option {
+    padding: 8px 12px !important;
+    font-size: 14px;
+    background-color: var(--bs-body-bg);
+}
+
+.select2-container {
+    width: 100% !important;
+}
+
+.select2-container--default .select2-selection--single:hover {
+    border-color: #80bdff !important;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--single,
+.select2-container--default.select2-container--open .select2-selection--single {
+    border-color: #80bdff !important;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25) !important;
+}
+
+.btn-primary {
+    margin-right: 10px;
+}
+
+/* Dropzone custom styling */
+.dropzone {
+    border: none !important;
+    background: none !important;
+    padding: 0 !important;
+}
+
+.dropzone-area {
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    background: var(--bs-body-bg);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dropzone-area:hover {
+    border-color: #007bff;
+    background: var(--bs-card-border);
+}
+
+.dropzone .dz-message {
+    margin: 2em 0;
+    font-size: 1.1em;
+    color: #666;
+}
+
+.dropzone .dz-preview {
+    margin: 10px;
+}
+
+.dropzone .dz-preview .dz-image {
+    border-radius: 8px;
+}
+
+label.error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+input.error, select.error, textarea.error {
+    border-color: red;
+}
+
+input.valid, select.valid, textarea.valid {
+    border-color: green;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 30px;
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+}
+
+footer a {
+    text-decoration: none;
+    color: inherit; /* Menggunakan warna teks saat ini */
+}
+
+footer .fab {
+    font-size: 1.5rem; /* Ukuran ikon media sosial */
+}
+
+footer p {
+    margin: 0;
+}
