@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApiEmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('employees', [ApiEmployeeController::class, 'index']);
+Route::post('employees', [ApiEmployeeController::class, 'store']);
+Route::get('employees/{id}', [ApiEmployeeController::class, 'show']);
+Route::put('employees/{id}', [ApiEmployeeController::class, 'update']);
+Route::delete('employees/{id}', [ApiEmployeeController::class, 'destroy']);
+// Route::delete('employees/batch', [ApiEmployeeController::class, 'batchDelete']);

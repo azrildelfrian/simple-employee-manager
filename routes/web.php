@@ -22,7 +22,7 @@ Route::get('/', function () {
 });
 
 Route::get('employee', [EmployeeController::class, 'index'])->name('employee.index');
-Route::post('employees/batch-delete', [EmployeeController::class, 'batchDelete'])->name('employee.batchDelete');
+// Route::post('employees/batch-delete', [EmployeeController::class, 'batchDelete'])->name('employee.batchDelete');
 Route::delete('employees/{id}', [EmployeeController::class, 'destroy'])->name('employee.destroy');
 
 Route::resource('employee', EmployeeController::class);

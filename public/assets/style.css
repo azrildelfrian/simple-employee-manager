@@ -66,19 +66,20 @@
 } */
 
 .card {
-    border: 1px solid #dee2e6; /* Garis border untuk card */
-    border-radius: 0.25rem; /* Radius sudut */
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* Bayangan hanya di kanan dan bawah */
-    margin-bottom: 20px; /* Jarak bawah */
+    border: 1px solid #dee2e6; 
+    border-radius: 0.25rem;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    margin-bottom: 20px; 
 }
 
 .card-header {
-    background-color: var(--bs-sidebar-bg); /* Warna latar belakang header */
-    border-bottom: 1px solid #dee2e6; /* Garis bawah header */
+    background-color: var(--bs-sidebar-bg);
+    border-bottom: 1px solid #dee2e6;
 }
 
 .card-body {
-    padding: 1.25rem; /* Padding di dalam card */
+    padding: 1.25rem;
 }
 
 .profile_pict {
@@ -118,6 +119,29 @@
     border-radius: 5px;
     padding: 10px;
     font-size: 14px;
+}
+
+.column-filter {
+    width: 100px;
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.column-filter:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* #employee th {
+    text-align: center;
+} */
+
+th input {
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .select2-container--default .select2-selection--single {
@@ -189,7 +213,6 @@
     margin-right: 10px;
 }
 
-/* Dropzone custom styling */
 .dropzone {
     border: none !important;
     background: none !important;
@@ -250,11 +273,11 @@ footer {
 
 footer a {
     text-decoration: none;
-    color: inherit; /* Menggunakan warna teks saat ini */
+    color: inherit;
 }
 
 footer .fab {
-    font-size: 1.5rem; /* Ukuran ikon media sosial */
+    font-size: 1.5rem; 
 }
 
 footer p {

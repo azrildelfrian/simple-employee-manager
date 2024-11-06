@@ -110,28 +110,29 @@ class EmployeeController extends Controller
     }
 
 
-    public function batchDelete(Request $request)
-    {
-        $request->validate([
-            'ids' => 'required|array',
-            'ids.*' => 'exists:employees,id',
-        ]);
+    //Proses batch delete (eksperimen)
+    // public function batchDelete(Request $request)
+    // {
+    //     $request->validate([
+    //         'ids' => 'required|array',
+    //         'ids.*' => 'exists:employees,id',
+    //     ]);
 
-        $employees = Employee::whereIn('id', $request->ids)->get();
+    //     $employees = Employee::whereIn('id', $request->ids)->get();
 
-        foreach ($employees as $employee) {
-            if ($employee->profile_pict) {
-                $oldFilePath = public_path('assets/profile_pict/' . $employee->profile_pict);
-                if (file_exists($oldFilePath)) {
-                    unlink($oldFilePath);
-                }
-            }
+    //     foreach ($employees as $employee) {
+    //         if ($employee->profile_pict) {
+    //             $oldFilePath = public_path('assets/profile_pict/' . $employee->profile_pict);
+    //             if (file_exists($oldFilePath)) {
+    //                 unlink($oldFilePath);
+    //             }
+    //         }
 
-            $employee->delete();
-        }
+    //         $employee->delete();
+    //     }
 
-        return redirect()->route('employee.index')->with('success', 'Selected employees successfully deleted.');
-    }
+    //     return redirect()->route('employee.index')->with('success', 'Selected employees successfully deleted.');
+    // }
 
 
 }

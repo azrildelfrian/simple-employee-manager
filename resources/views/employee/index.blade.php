@@ -10,17 +10,17 @@
             <h5 class="card-title mb-0">List of Employees</h5>
             <div class="ml-auto">
                 <a href="{{ route('employee.create') }}" class="btn btn-primary">Add Employee</a>
-                <button id="batch-delete" class="btn btn-danger" onclick="confirmBatchDelete()">Delete Selected</button>
+                {{-- <button id="batch-delete" class="btn btn-danger" onclick="confirmBatchDelete()">Delete Selected</button> --}}
             </div>
         </div>        
         <div class="card-body">
-            <form id="batch-delete-form" action="{{ route('employee.batchDelete') }}" method="POST">
+            {{-- <form id="batch-delete-form" action="{{ route('employee.batchDelete') }}" method="POST"> --}}
                 @csrf
                 <div class="table-responsive">
                     <table id="employee" class="table table-striped" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Select</th>
+                                <th>No</th>
                                 <th>Profile Picture</th>
                                 <th>Name</th>
                                 <th>Position</th>
@@ -29,11 +29,22 @@
                                 <th>Salary</th>
                                 <th>Actions</th>
                             </tr>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th><input type="text" placeholder="Filter Name" class="column-filter"></th>
+                                <th><input type="text" placeholder="Filter Position" class="column-filter"></th>
+                                <th><input type="text" placeholder="Filter Gender" class="column-filter"></th>
+                                <th><input type="text" placeholder="Filter Date" class="column-filter"></th>
+                                <th><input type="text" placeholder="Filter Salary" class="column-filter"></th>
+                                <th></th>
+                            </tr>
                         </thead>
                         <tbody>
+                            @php $no = 1; @endphp
                             @foreach($employees as $employee)
                             <tr>
-                                <td><input type="checkbox" name="ids[]" value="{{ $employee->id }}"></td>
+                                <td>{{ $no++ }}</td>
                                 <td>
                                     @if($employee->profile_pict)
                                         <img src="{{ asset('assets/profile_pict/' . $employee->profile_pict) }}" alt="Profile Picture" class="profile_pict">
@@ -59,7 +70,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Select</th>
+                                <th>No</th>
                                 <th>Profile Picture</th>
                                 <th>Name</th>
                                 <th>Position</th>
@@ -71,7 +82,7 @@
                         </tfoot>
                     </table>
                 </div>
-            </form>
+            {{-- </form> --}}
         </div>
     </div>
 </section>
@@ -79,17 +90,25 @@
 
 @section('scripts')
 <script>
-    new DataTable('#employee');
+    var table = new DataTable('#employee');
 
-    function confirmBatchDelete() {
-        const checkboxes = document.querySelectorAll('input[name="ids[]"]:checked');
-        if (checkboxes.length === 0) {
-            alert('Please select at least one employee to delete.');
-            return;
-        }
-        if (confirm('Are you sure you want to delete the selected employees?')) {
-            document.getElementById('batch-delete-form').submit();
-        }
-    }
+    $('#employee thead tr:eq(1) th').each(function (i) {
+        $('input', this).on('keyup change', function () {
+            if (table.column(i).search() !== this.value) {
+                table.column(i).search(this.value).draw();
+            }
+        });
+    });
+
+    // function confirmBatchDelete() {
+    //     const checkboxes = document.querySelectorAll('input[name="ids[]"]:checked');
+    //     if (checkboxes.length === 0) {
+    //         alert('Please select at least one employee to delete.');
+    //         return;
+    //     }
+    //     if (confirm('Are you sure you want to delete the selected employees?')) {
+    //         document.getElementById('batch-delete-form').submit();
+    //     }
+    // }
 </script>
 @endsection
