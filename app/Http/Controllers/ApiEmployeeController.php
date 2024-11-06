@@ -97,7 +97,6 @@ class ApiEmployeeController extends Controller
 
         $data = $request->all();
 
-        // Upload gambar baru jika ada dan hapus yang lama
         if ($request->hasFile('profile_pict')) {
             if ($employee->profile_pict) {
                 $oldFilePath = public_path('assets/profile_pict/' . $employee->profile_pict);
@@ -119,7 +118,6 @@ class ApiEmployeeController extends Controller
         ], 200);
     }
 
-    // Menghapus data karyawan berdasarkan ID
     public function destroy($id)
     {
         $employee = Employee::find($id);
